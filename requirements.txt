@@ -1,0 +1,7 @@
+paho-mqtt==2.0.0
+python-dotenv==1.0.0
+prompt-toolkit==3.0.41
+charset-normalizer==3.3.2
+certifi==2023.11.17
+virtualenv==20.24.7
+wcwidth==0.2.12
