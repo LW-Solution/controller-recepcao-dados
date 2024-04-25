@@ -1,6 +1,10 @@
 #MQTT Sub example
 
+import json
 import paho.mqtt.client as mqtt
+import conectRedis
+
+r = conectRedis.conectar()
 
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(con, userdata, flags, rc, properties):
@@ -13,8 +17,14 @@ def on_connect(con, userdata, flags, rc, properties):
 # The callback for when a PUBLISH message is received from the server.
 def on_message(con, userdata, msg):
     print(msg.topic+" "+str(msg.payload))
-    return msg.payload, msg.topic
+    payload_str = msg.payload.decode('utf-8')  # decode bytes to string
+    payload_json = json.loads(payload_str)  # convert string to JSON
+    print("Jason TESTE:")
+    print(payload_json)
+    print(type(payload_json))
 
+    
+    
 
 def conectar_sub():
 
