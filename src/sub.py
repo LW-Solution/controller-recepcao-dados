@@ -22,23 +22,7 @@ def on_message(con, userdata, msg):
     payload_str = msg.payload.decode('utf-8')  # decode bytes to string
     payload_json = json.dumps(payload_str)  # convert string to JSON
     chave = str(uuid.uuid4())
-    r.set(chave, payload_json)
-    chaves = r.keys('*')
-    
-    # Lista para armazenar os JSONs
-    dados_json = []
-
-    for chave in chaves:
-    # Recuperando o valor (JSON) associado à chave
-        valor = r.get(chave)
-    
-    # Decodificando o valor de JSON para um dicionário Python
-        json_data = json.loads(valor)
-    
-    # Adicionando o JSON à lista de dados
-        dados_json.append(json_data)
-
-    
+    r.set(chave, payload_json) 
     
 
 def conectar_sub():
