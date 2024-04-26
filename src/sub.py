@@ -18,11 +18,14 @@ def on_connect(con, userdata, flags, rc, properties):
 
 # The callback for when a PUBLISH message is received from the server.
 def on_message(con, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))
-    payload_str = msg.payload.decode('utf-8')  # decode bytes to string
-    payload_json = json.dumps(payload_str)  # convert string to JSON
-    chave = str(uuid.uuid4())
-    r.set(chave, payload_json) 
+    try:
+        print(msg.topic+" "+str(msg.payload))
+        payload_str = msg.payload.decode('utf-8')  # decode bytes to string
+        payload_json = json.dumps(payload_str)  # convert string to JSON
+        chave = str(uuid.uuid4())
+        r.set(chave, payload_json) 
+    except Exception as e:
+        print(e)
     
 
 def conectar_sub():
