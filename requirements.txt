@@ -5,3 +5,4 @@ charset-normalizer==3.3.2
 certifi==2023.11.17
 virtualenv==20.24.7
 wcwidth==0.2.12
+redis==5.0.4
