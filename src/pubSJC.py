@@ -34,6 +34,8 @@ def conectar_pub():
             	]
 
 		msg = json
+	  
+		print(msg)
 
 		con.publish("fatec/lw/dados/",str(msg))
 		time.sleep(60)

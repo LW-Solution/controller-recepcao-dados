@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 3002
 
 # Run start.sh when the container launches
-CMD ["./bin/sh/start.sh"]
+CMD ["./start.sh"]
