@@ -1,7 +1,5 @@
-#!/bin/sh
-ls -la
+#!/bin/bash
 cd src
-la -la
 python main.py &
 python pubSJC.py &
 python pubTBT.py &

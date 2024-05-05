@@ -7,11 +7,12 @@ WORKDIR /src
 # Add the current directory contents into the container at /app
 ADD . /src
 
+# Install dos2unix and convert the line endings in start.sh
+RUN apt-get update && apt-get install -y dos2unix
+RUN dos2unix ./bin/sh/start.sh && apt-get --purge remove -y dos2unix && rm -rf /var/lib/apt/lists/*
+
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 3002 available to the world outside this container
-EXPOSE 3002
-
-# Run start.sh when the container launches
-CMD ["./start.sh"]
+RUN chmod +x ./bin/sh/start.sh
+CMD ["./bin/sh/start.sh"]

@@ -2,7 +2,7 @@
 
 import json
 import paho.mqtt.client as mqtt
-import conectRedis
+import conectRedis as conectRedis
 import uuid
 
 
