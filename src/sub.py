@@ -23,7 +23,7 @@ def on_message(con, userdata, msg):
         payload_str = msg.payload.decode('utf-8')  # decode bytes to string
         payload_json = json.dumps(payload_str)  # convert string to JSON
         chave = str(uuid.uuid4())
-        r.set(chave, payload_json) 
+        r.set(chave, payload_str) 
     except Exception as e:
         print(e)
     
