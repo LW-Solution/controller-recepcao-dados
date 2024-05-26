@@ -1,7 +1,4 @@
 #!/bin/bash
 cd src
-python main.py &
-python pubSJC.py &
-python pubTBT.py &
-python pubJAC.py &
+python main.py
 wait
